@@ -32,7 +32,9 @@
               }
             ],
             "styles": [
-              "src/styles/styles.scss"
+              "src/styles/styles.scss",
+              "src/styles/tokens.scss",
+              "src/styles/tailwind.css"
             ]
           },
           "configurations": {
@@ -86,11 +88,16 @@
               }
             ],
             "styles": [
-              "src/styles/styles.scss"
+              "src/styles/styles.scss",
+              "src/styles/tokens.scss",
+              "src/styles/tailwind.css"
             ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "87afb09e-d65c-472f-9281-9a48d91ff922"
   }
 }
