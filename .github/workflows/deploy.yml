@@ -31,8 +31,8 @@ jobs:
         run: npm i
       
       - name: Build ui-kit library
-        run: ng build ui-kit --configuration production
-
+        run: npm run build:lib
+        
       - name: Build Angular app
         run: npm run build -- --configuration production --base-href=/portfolio/
       
