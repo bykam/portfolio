@@ -1,1 +1,44 @@
-<p>header works!</p>
+    <mat-toolbar>
+      <a routerLink="/" class="brand">Portfolio</a>
+      <span class="spacer"></span>
+
+      <nav class="nav-desktop" aria-label="Navigazione principale">
+        @for (link of navLinks; track link.path) {
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
+            matButton="text"
+          >{{ 'Nav.'+link.label | translate}}</a>
+        }
+      </nav>
+
+      <button
+        matIconButton
+        (click)="toggleTheme()"
+        [attr.aria-label]="isDark() ? 'Passa alla modalità chiara' : 'Passa alla modalità scura'"
+      >
+        <mat-icon [fontIcon]="isDark() ? 'light_mode' : 'dark_mode'"></mat-icon>
+      </button>
+
+      <button
+        matIconButton
+        class="btn-hamburger"
+        (click)="toggleMobileMenu()"
+        aria-label="Apri menu di navigazione"
+      >
+        <mat-icon>{{ mobileMenuOpen() ? 'close' : 'menu' }}</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="mobile-menu" [class.open]="mobileMenuOpen()">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
+          matButton="text"
+          (click)="closeMobileMenu()"
+        >{{ link.label }}</a>
+      }
+    </div>
