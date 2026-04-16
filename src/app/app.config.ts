@@ -16,7 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideTranslateService({ defaultLanguage: 'it' }),
     provideHttpClient(),
     provideTranslateHttpLoader({
-      prefix: '/i18n/',
+      prefix: 'i18n/',
       suffix: '.json'
     }),
     provideAppInitializer(() => {
