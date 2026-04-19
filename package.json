@@ -10,7 +10,9 @@
     "test": "ng test",
     "build:gh": "ng build --configuration production --base-href /portfolio/",
     "build:lib": "ng build ui-kit --configuration production",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "format": "prettier --write \"src/**/*.{ts,html,scss,css,json}\" \"libs/**/*.{ts,html,scss}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,html,scss,css,json}\" \"libs/**/*.{ts,html,scss}\""
   },
   "prettier": {
     "printWidth": 100,
@@ -60,6 +62,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^21.2.0",
     "postcss": "^8.5.3",
+    "prettier": "^3.8.3",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
   }

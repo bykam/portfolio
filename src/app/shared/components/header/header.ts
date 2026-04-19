@@ -21,7 +21,7 @@ interface NavLink {
     RouterLinkActive,
     MatButtonModule,
     MatIconModule,
-    TranslatePipe
+    TranslatePipe,
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss',
@@ -33,10 +33,10 @@ export class Header {
   protected readonly mobileMenuOpen = signal(false);
 
   protected readonly navLinks: NavLink[] = [
-    { label: 'Home',     path: '/',         exact: true },
-    { label: 'About',    path: '/about' },
+    { label: 'Home', path: '/', exact: true },
+    { label: 'About', path: '/about' },
     { label: 'Projects', path: '/projects' },
-    { label: 'Contact',  path: '/contact' },
+    { label: 'Contact', path: '/contact' },
   ];
 
   protected toggleTheme(): void {
@@ -44,7 +44,7 @@ export class Header {
   }
 
   protected toggleMobileMenu(): void {
-    this.mobileMenuOpen.update(open => !open);
+    this.mobileMenuOpen.update((open) => !open);
   }
 
   protected closeMobileMenu(): void {

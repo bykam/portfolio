@@ -34,17 +34,16 @@ export class Button {
   });
 
   private mapMenuItems(items: MenuItem[]): MenuItem[] {
-  return items.map(item => {
-    const children = item.children ? this.mapMenuItems(item.children) : undefined;
+    return items.map((item) => {
+      const children = item.children ? this.mapMenuItems(item.children) : undefined;
 
-    const isLeaf = !children || children.length === 0;
+      const isLeaf = !children || children.length === 0;
 
-    return {
-      ...item,
-      children,
-      isLeaf
-    };
-  });
-}
-
+      return {
+        ...item,
+        children,
+        isLeaf,
+      };
+    });
+  }
 }

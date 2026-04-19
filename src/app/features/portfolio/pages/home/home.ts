@@ -8,6 +8,4 @@ import { Header } from '../../../../shared/components/header/header';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
-
-}
+export class Home {}

@@ -1,79 +1,80 @@
-@switch(type()) {
-    @case('button') {
-        <button
-            type="button"
-            [matButton]="variant()"
-            [disabled]="disabled()">
-            @if(icon() && iconPosition() === 'left') {
-                <mat-icon>{{icon()}}</mat-icon>
-            }
-            {{label()}}
-            @if(icon() && iconPosition() === 'right') {
-                <mat-icon>{{icon()}}</mat-icon>
-            }
-        </button>
-    }
+@switch (type()) {
+  @case ('button') {
+    <button type="button" [matButton]="variant()" [disabled]="disabled()">
+      @if (icon() && iconPosition() === 'left') {
+        <mat-icon>{{ icon() }}</mat-icon>
+      }
+      {{ label() }}
+      @if (icon() && iconPosition() === 'right') {
+        <mat-icon>{{ icon() }}</mat-icon>
+      }
+    </button>
+  }
 
-    @case('link') {
-        <a
-            [matButton]="variant()"
-            [href]="link()">
-            @if(icon() && iconPosition() === 'left') {
-                <mat-icon>{{icon()}}</mat-icon>
-            }
-            {{label()}}
-            @if(icon() && iconPosition() === 'right') {
-                <mat-icon>{{icon()}}</mat-icon>
-            }
-        </a>
-    }
+  @case ('link') {
+    <a [matButton]="variant()" [href]="link()">
+      @if (icon() && iconPosition() === 'left') {
+        <mat-icon>{{ icon() }}</mat-icon>
+      }
+      {{ label() }}
+      @if (icon() && iconPosition() === 'right') {
+        <mat-icon>{{ icon() }}</mat-icon>
+      }
+    </a>
+  }
 
-    @case('menu') {
-        <button
-            type="button"
-            [matMenuTriggerFor]="menu"
-            [matButton]="variant()"
-            [disabled]="disabled()">
-            @if(icon() && iconPosition() === 'left') {
-                <mat-icon>{{icon()}}</mat-icon>
-            }
-            {{label()}}
-            @if(icon() && iconPosition() === 'right') {
-                <mat-icon>{{icon()}}</mat-icon>
-            }
-        </button>
+  @case ('menu') {
+    <button
+      type="button"
+      [matMenuTriggerFor]="menu"
+      [matButton]="variant()"
+      [disabled]="disabled()"
+    >
+      @if (icon() && iconPosition() === 'left') {
+        <mat-icon>{{ icon() }}</mat-icon>
+      }
+      {{ label() }}
+      @if (icon() && iconPosition() === 'right') {
+        <mat-icon>{{ icon() }}</mat-icon>
+      }
+    </button>
 
-        <mat-menu #menu="matMenu">
-            <ng-container
-                [ngTemplateOutlet]="recursiveMenu"
-                [ngTemplateOutletContext]="{ $implicit: mappedMenuItems() }"/>
-        </mat-menu>
-    }
+    <mat-menu #menu="matMenu">
+      <ng-container
+        [ngTemplateOutlet]="recursiveMenu"
+        [ngTemplateOutletContext]="{ $implicit: mappedMenuItems() }"
+      />
+    </mat-menu>
+  }
 }
 
-
 <ng-template #recursiveMenu let-items>
-  @for(item of items; track $index) {
-
-    @if(item.isLeaf) {
+  @for (item of items; track $index) {
+    @if (item.isLeaf) {
       <button type="button" mat-menu-item (click)="onClickItem($event, item)">
-        @if(item.icon) {
-          <mat-icon>{{item.icon}}</mat-icon>
+        @if (item.icon) {
+          <mat-icon>{{ item.icon }}</mat-icon>
         }
-        {{item.label}}
+        {{ item.label }}
       </button>
     } @else {
-      <button type="button" mat-menu-item [matMenuTriggerFor]="childMenu" (click)="onClickItem($event, item)">
-        @if(item.icon) {
-          <mat-icon>{{item.icon}}</mat-icon>
+      <button
+        type="button"
+        mat-menu-item
+        [matMenuTriggerFor]="childMenu"
+        (click)="onClickItem($event, item)"
+      >
+        @if (item.icon) {
+          <mat-icon>{{ item.icon }}</mat-icon>
         }
-        {{item.label}}
+        {{ item.label }}
       </button>
 
       <mat-menu #childMenu="matMenu">
-            <ng-container
-                [ngTemplateOutlet]="recursiveMenu"
-                [ngTemplateOutletContext]="{ $implicit: item.children }"/>
+        <ng-container
+          [ngTemplateOutlet]="recursiveMenu"
+          [ngTemplateOutletContext]="{ $implicit: item.children }"
+        />
       </mat-menu>
     }
   }

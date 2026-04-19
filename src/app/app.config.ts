@@ -3,7 +3,8 @@ import {
   inject,
   provideAppInitializer,
   provideBrowserGlobalErrorListeners,
-  provideZonelessChangeDetection } from '@angular/core';
+  provideZonelessChangeDetection,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { MatIconRegistry } from '@angular/material/icon';
 import { routes } from './app.routes';
@@ -22,14 +23,11 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideTranslateHttpLoader({
       prefix: 'i18n/',
-      suffix: '.json'
+      suffix: '.json',
     }),
     provideAppInitializer(() => {
       const iconRegistry = inject(MatIconRegistry);
-      iconRegistry.setDefaultFontSetClass(
-        'material-symbols-outlined',
-        'mat-ligature-font'
-      );
+      iconRegistry.setDefaultFontSetClass('material-symbols-outlined', 'mat-ligature-font');
     }),
     provideAppInitializer(() => {
       const translate = inject(TranslateService);
@@ -37,5 +35,5 @@ export const appConfig: ApplicationConfig = {
       const lang = saved === 'en' || saved === 'it' ? saved : 'it';
       translate.use(lang);
     }),
-  ]
+  ],
 };

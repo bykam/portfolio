@@ -6,7 +6,7 @@ export type Theme = 'light' | 'dark';
 const STORAGE_KEY = 'portfolio-theme';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
   private readonly document = inject(DOCUMENT);
@@ -22,7 +22,7 @@ export class ThemeService {
   }
 
   toggle(): void {
-    this._theme.update(t => (t === 'dark' ? 'light' : 'dark'));
+    this._theme.update((t) => (t === 'dark' ? 'light' : 'dark'));
   }
 
   setTheme(theme: Theme): void {
@@ -49,5 +49,4 @@ export class ThemeService {
       localStorage.setItem(STORAGE_KEY, theme);
     }
   }
-
 }
