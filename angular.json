@@ -77,21 +77,9 @@
           "builder": "@angular/build:extract-i18n"
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles/styles.scss",
-              "src/styles/tokens.scss",
-              "src/styles/tailwind.css"
-            ]
+            "tsConfig": "tsconfig.spec.json"
           }
         },
         "lint": {

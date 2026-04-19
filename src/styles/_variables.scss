@@ -1,0 +1,19 @@
+// _variables.scss
+
+// ─── Breakpoints ─────────────────────────────────────────────
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-2xl: 1536px;
+
+// ─── Z-index scale ───────────────────────────────────────────
+$z-header: 100;
+$z-modal: 200;
+$z-tooltip: 300;
+
+// ─── Animazioni ──────────────────────────────────────────────
+$duration-fast: 150ms;
+$duration-base: 250ms;
+$duration-slow: 400ms;
+$easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
