@@ -1,8 +1,20 @@
 {
-  "Nav": {
-    "Nome": "Home",
-    "About": "About",
-    "Projects": "Projects",
-    "Contact": "Contact"
-  }
+  "Header": {
+    "Brand": "Portfolio",
+    "Nav": {
+      "Home": "Home",
+      "About": "About",
+      "Projects": "Projects"
+    },
+    "Actions": {
+      "Theme": {
+        "Light": "Switch to light mode",
+        "Dark": "Switch to dark mode"
+      },
+      "Menu": {
+        "Open": "Open navigation menu"
+      }
+    }
+  },
+  "Home": {}
 }

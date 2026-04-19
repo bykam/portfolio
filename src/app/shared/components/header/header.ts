@@ -7,7 +7,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { ThemeService } from '@core/services/theme';
 
 interface NavLink {
-  label: string;
+  id: string;
   path: string;
   exact?: boolean;
 }
@@ -33,9 +33,9 @@ export class Header {
   protected readonly mobileMenuOpen = signal(false);
 
   protected readonly navLinks: NavLink[] = [
-    { label: 'Home', path: '/', exact: true },
-    { label: 'About', path: '/about' },
-    { label: 'Projects', path: '/projects' },
+    { id: 'Home', path: '/', exact: true },
+    { id: 'About', path: '/about' },
+    { id: 'Projects', path: '/projects' },
   ];
 
   protected toggleTheme(): void {

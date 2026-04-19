@@ -1,8 +1,20 @@
 {
-  "Nav": {
-    "Home": "Home",
-    "About": "Chi sono",
-    "Projects": "Progetti",
-    "Contact": "Contatti"
-  }
+  "Header": {
+    "Brand": "Portfolio",
+    "Nav": {
+      "Home": "Home",
+      "About": "Chi sono",
+      "Projects": "Progetti"
+    },
+    "Actions": {
+      "Theme": {
+        "Light": "Passa alla modalità chiara",
+        "Dark": "Passa alla modalità scura"
+      },
+      "Menu": {
+        "Open": "Apri menu di navigazione"
+      }
+    }
+  },
+  "Home": {}
 }

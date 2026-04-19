@@ -1,5 +1,7 @@
 <mat-toolbar>
-  <a routerLink="/" class="brand">Portfolio</a>
+  <a routerLink="/" class="brand">
+    {{ 'Header.Brand' | translate }}
+  </a>
   <span class="spacer"></span>
 
   <nav class="nav-desktop" aria-label="Navigazione principale">
@@ -9,7 +11,7 @@
         matButton="text"
         [routerLink]="link.path"
         [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
-        >{{ 'Nav.' + link.label | translate }}</a
+        >{{ 'Header.Nav.' + link.id | translate }}</a
       >
     }
   </nav>
@@ -17,7 +19,11 @@
   <button
     type="button"
     matIconButton
-    [attr.aria-label]="isDark() ? 'Passa alla modalità chiara' : 'Passa alla modalità scura'"
+    [attr.aria-label]="
+      isDark()
+        ? ('Header.Actions.Theme.Light' | translate)
+        : ('Header.Actions.Theme.Dark' | translate)
+    "
     (click)="toggleTheme()"
   >
     <mat-icon [fontIcon]="isDark() ? 'light_mode' : 'dark_mode'" />
@@ -27,7 +33,7 @@
     type="button"
     matIconButton
     class="btn-hamburger"
-    aria-label="Apri menu di navigazione"
+    [attr.aria-label]="'Header.Actions.Menu.Open' | translate"
     (click)="toggleMobileMenu()"
   >
     <mat-icon>{{ mobileMenuOpen() ? 'close' : 'menu' }}</mat-icon>
@@ -42,7 +48,7 @@
       [routerLink]="link.path"
       [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
       (click)="closeMobileMenu()"
-      >{{ link.label }}</a
+      >{{ 'Header.Nav.' + link.id | translate }}</a
     >
   }
 </div>
