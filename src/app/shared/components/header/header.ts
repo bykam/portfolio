@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ThemeService } from '../../../core/services/theme';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -14,6 +14,7 @@ interface NavLink {
 
 @Component({
   selector: 'app-header',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     MatToolbarModule,
     RouterLink,

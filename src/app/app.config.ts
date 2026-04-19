@@ -1,10 +1,15 @@
-import { ApplicationConfig, inject, provideAppInitializer, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  inject,
+  provideAppInitializer,
+  provideBrowserGlobalErrorListeners,
+  provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { MatIconRegistry } from '@angular/material/icon';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideTranslateHttpLoader, TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideHttpClient } from '@angular/common/http';
 import { provideTranslateService, TranslateService } from '@ngx-translate/core';
 
 export const appConfig: ApplicationConfig = {

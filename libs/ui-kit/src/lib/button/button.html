@@ -1,6 +1,7 @@
 @switch(type()) {
     @case('button') {
         <button
+            type="button"
             [matButton]="variant()"
             [disabled]="disabled()">
             @if(icon() && iconPosition() === 'left') {
@@ -29,6 +30,7 @@
 
     @case('menu') {
         <button
+            type="button"
             [matMenuTriggerFor]="menu"
             [matButton]="variant()"
             [disabled]="disabled()">
@@ -44,8 +46,7 @@
         <mat-menu #menu="matMenu">
             <ng-container
                 [ngTemplateOutlet]="recursiveMenu"
-                [ngTemplateOutletContext]="{ $implicit: menuItems() }">
-            </ng-container>
+                [ngTemplateOutletContext]="{ $implicit: mappedMenuItems() }"/>
         </mat-menu>
     }
 }
@@ -54,17 +55,15 @@
 <ng-template #recursiveMenu let-items>
   @for(item of items; track $index) {
 
-    @if(!item.children || item.children.length === 0) {
-      <button mat-menu-item (click)="onClickItem($event, item)">
+    @if(item.isLeaf) {
+      <button type="button" mat-menu-item (click)="onClickItem($event, item)">
         @if(item.icon) {
           <mat-icon>{{item.icon}}</mat-icon>
         }
         {{item.label}}
       </button>
-    }
-
-    @if(item.children && item.children.length > 0) {
-      <button mat-menu-item [matMenuTriggerFor]="childMenu" (click)="onClickItem($event, item)">
+    } @else {
+      <button type="button" mat-menu-item [matMenuTriggerFor]="childMenu" (click)="onClickItem($event, item)">
         @if(item.icon) {
           <mat-icon>{{item.icon}}</mat-icon>
         }
@@ -74,8 +73,7 @@
       <mat-menu #childMenu="matMenu">
             <ng-container
                 [ngTemplateOutlet]="recursiveMenu"
-                [ngTemplateOutletContext]="{ $implicit: item.children }">
-            </ng-container>
+                [ngTemplateOutletContext]="{ $implicit: item.children }"/>
       </mat-menu>
     }
   }
