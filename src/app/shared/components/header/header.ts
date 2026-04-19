@@ -36,7 +36,6 @@ export class Header {
     { label: 'Home', path: '/', exact: true },
     { label: 'About', path: '/about' },
     { label: 'Projects', path: '/projects' },
-    { label: 'Contact', path: '/contact' },
   ];
 
   protected toggleTheme(): void {
