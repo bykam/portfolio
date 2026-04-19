@@ -19,6 +19,11 @@ body {
   // Default the application to a light color theme. This can be changed to
   // `dark` to enable the dark color theme, or to `light dark` to defer to the
   // user's system settings.
+
+  //UPDATE
+
+  // Default: light. Overridden by .dark/.light class (ThemeService)
+  // and @media (prefers-color-scheme) before JS loads.
   color-scheme: light;
 
   // Set a default background, font and text colors for the application using
@@ -31,4 +36,20 @@ body {
   // Reset the user agent margin.
   margin: 0;
   height: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color-scheme: dark;
+  }
+}
+
+// Quando ThemeService applica la classe .dark su <html>
+.dark body {
+  color-scheme: dark;
+}
+
+// Quando l'utente ha forzato il light manualmente
+.light body {
+  color-scheme: light;
 }
