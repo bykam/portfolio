@@ -19,7 +19,7 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(routes),
     provideAnimationsAsync(),
-    provideTranslateService({ defaultLanguage: 'it' }),
+    provideTranslateService({ fallbackLang: 'it' }),
     provideHttpClient(),
     provideTranslateHttpLoader({
       prefix: 'i18n/',
