@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ThemeService } from '../../../core/services/theme';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslatePipe } from '@ngx-translate/core';
+import { ThemeService } from '@core/services/theme';
 
 interface NavLink {
   label: string;
