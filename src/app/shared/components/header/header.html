@@ -5,28 +5,30 @@
   <nav class="nav-desktop" aria-label="Navigazione principale">
     @for (link of navLinks; track link.path) {
       <a
-        [routerLink]="link.path"
         routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
         matButton="text"
+        [routerLink]="link.path"
+        [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
         >{{ 'Nav.' + link.label | translate }}</a
       >
     }
   </nav>
 
   <button
+    type="button"
     matIconButton
-    (click)="toggleTheme()"
     [attr.aria-label]="isDark() ? 'Passa alla modalità chiara' : 'Passa alla modalità scura'"
+    (click)="toggleTheme()"
   >
-    <mat-icon [fontIcon]="isDark() ? 'light_mode' : 'dark_mode'"></mat-icon>
+    <mat-icon [fontIcon]="isDark() ? 'light_mode' : 'dark_mode'" />
   </button>
 
   <button
+    type="button"
     matIconButton
     class="btn-hamburger"
-    (click)="toggleMobileMenu()"
     aria-label="Apri menu di navigazione"
+    (click)="toggleMobileMenu()"
   >
     <mat-icon>{{ mobileMenuOpen() ? 'close' : 'menu' }}</mat-icon>
   </button>
@@ -35,10 +37,10 @@
 <div class="mobile-menu" [class.open]="mobileMenuOpen()">
   @for (link of navLinks; track link.path) {
     <a
-      [routerLink]="link.path"
       routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
       matButton="text"
+      [routerLink]="link.path"
+      [routerLinkActiveOptions]="{ exact: link.exact ?? false }"
       (click)="closeMobileMenu()"
       >{{ link.label }}</a
     >
