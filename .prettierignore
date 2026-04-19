@@ -1,0 +1,12 @@
+# Build output
+dist/
+.angular/
+
+# Dependencies
+node_modules/
+
+# Lock files (non toccare mai)
+package-lock.json
+
+# Coverage
+coverage/

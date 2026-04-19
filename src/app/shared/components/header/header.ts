@@ -1,10 +1,10 @@
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ThemeService } from '../../../core/services/theme';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslatePipe } from '@ngx-translate/core';
+import { ThemeService } from '@core/services/theme';
 
 interface NavLink {
   label: string;
@@ -14,13 +14,14 @@ interface NavLink {
 
 @Component({
   selector: 'app-header',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     MatToolbarModule,
     RouterLink,
     RouterLinkActive,
     MatButtonModule,
     MatIconModule,
-    TranslatePipe
+    TranslatePipe,
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss',
@@ -32,10 +33,10 @@ export class Header {
   protected readonly mobileMenuOpen = signal(false);
 
   protected readonly navLinks: NavLink[] = [
-    { label: 'Home',     path: '/',         exact: true },
-    { label: 'About',    path: '/about' },
+    { label: 'Home', path: '/', exact: true },
+    { label: 'About', path: '/about' },
     { label: 'Projects', path: '/projects' },
-    { label: 'Contact',  path: '/contact' },
+    { label: 'Contact', path: '/contact' },
   ];
 
   protected toggleTheme(): void {
@@ -43,7 +44,7 @@ export class Header {
   }
 
   protected toggleMobileMenu(): void {
-    this.mobileMenuOpen.update(open => !open);
+    this.mobileMenuOpen.update((open) => !open);
   }
 
   protected closeMobileMenu(): void {

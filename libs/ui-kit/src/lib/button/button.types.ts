@@ -3,5 +3,6 @@ export interface MenuItem {
   icon?: string;
   visible?: boolean;
   children?: MenuItem[];
+  isLeaf?: boolean;
   command?: (ev: Event) => void;
 }

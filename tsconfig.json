@@ -19,9 +19,11 @@
       "node_modules/@angular"
     ],
     "paths": {
-      "ui-kit": [
-        "./dist/ui-kit"
-      ]
+      "ui-kit": ["./dist/ui-kit"],
+      "@core/*": ["./src/app/core/*"],
+      "@shared/*": ["./src/app/shared/*"],
+      "@features/*": ["./src/app/features/*"],
+      "@styles/*": ["./src/styles/*"]
     }
   },
   "angularCompilerOptions": {
