@@ -14,10 +14,6 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "preserve",
-    "typeRoots": [
-      "node_modules/@types",
-      "node_modules/@angular"
-    ],
     "paths": {
       "ui-kit": ["./dist/ui-kit"],
       "@core/*": ["./src/app/core/*"],
